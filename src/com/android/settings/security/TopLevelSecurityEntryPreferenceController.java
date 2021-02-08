@@ -25,6 +25,8 @@ import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
 
+import com.android.settings.custom.biometrics.FaceUtils;
+
 public class TopLevelSecurityEntryPreferenceController extends BasePreferenceController {
 
     public TopLevelSecurityEntryPreferenceController(Context context, String preferenceKey) {
@@ -45,7 +47,9 @@ public class TopLevelSecurityEntryPreferenceController extends BasePreferenceCon
         final AppLockManager appLockManager =
                 Utils.getAppLockManager(mContext);
         CharSequence summary = null;
-        if (fpm != null && fpm.isHardwareDetected()) {
+        if (fpm != null && fpm.isHardwareDetected() && FaceUtils.isFaceUnlockSupported()) {
+            summary = mContext.getText(R.string.security_dashboard_summary_face_and_fingerprint);
+        } else if (fpm != null && fpm.isHardwareDetected()) {
             summary = mContext.getText(R.string.security_dashboard_summary);
         } else if (faceManager != null && faceManager.isHardwareDetected()) {
             summary = mContext.getText(R.string.security_dashboard_summary_face);
