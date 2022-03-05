@@ -12248,4 +12248,10 @@
     <string name="bluetooth_connect_access_dialog_negative">Don\u2019t connect</string>
     <!-- Strings for Dialog connect button -->
     <string name="bluetooth_connect_access_dialog_positive">Connect</string>
+
+    <!-- Maintainer -->
+    <string name="havoc_maintainer">Device Maintainer</string>
+    <string name="havoc_maintainer_title">@string/havoc_maintainer</string>
+    <string name="havoc_maintainer_summary">Unknown</string>
+
 </resources>
